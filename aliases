@@ -1,0 +1,29 @@
+alias l='ls -h'
+alias l1='ls -1'
+alias ll='ls -lah'
+alias lrt='ls -lahrt'
+
+alias v='vim'
+alias vi='vim'
+
+# git aliases
+alias gst='git status'
+alias gci='git commit'
+alias gco='git checkout'
+alias gadd='git add'
+alias gpush='git push'
+alias gpull='git pull'
+alias gdiff='git diff'
+
+# mercurial aliases
+alias hst='hg status'
+alias hci='hg commit'
+alias hco='hg checkout'
+alias hadd='hg add'
+alias hpush='hg push'
+alias hpull='hg pull'
+alias hdiff='hg diff'
+
+alias ruby='ruby2.0'
+
+alias xclip='xclip -selection clipboard'
