@@ -1,0 +1,28 @@
+[user]
+	name = Ignacio Lesser
+	email = nachoyo89@gmail.com
+[core]
+   editor = vim
+[alias]
+   co = checkout
+   br = branch
+   ci = commit
+   st = status
+   sub = submodule
+   gr = log --all --decorate --oneline --graph --abbrev-commit --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+   last = log -n1
+[gitflow "branch"]
+	develop = master
+	master = 
+[gitflow "prefix"]
+	feature = 
+	release = 
+	hotfix = 
+	support = 
+	versiontag = v
+[http]
+	sslVerify = false
+[merge]
+	tool = vimdiff
+[push]
+	default = simple
