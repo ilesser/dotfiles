@@ -1,0 +1,90 @@
+" Misc {
+   let g:NERDShutUp=1
+" }
+
+" Session List {
+   set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
+   nmap <leader>sl :SessionList<CR>
+   nmap <leader>ss :SessionSave<CR>
+   nmap <leader>sc :SessionClose<CR>
+" }
+
+" NerdTree {
+   map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+   map <leader>e :NERDTreeFind<CR>
+   nmap <leader>nt :NERDTreeFind<CR>
+
+   let NERDTreeShowBookmarks=1
+   let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+   let NERDTreeChDirMode=0
+   let NERDTreeQuitOnOpen=1
+   let NERDTreeMouseMode=2
+   let NERDTreeShowHidden=1
+   let NERDTreeKeepTreeInNewTab=1
+   let g:nerdtree_tabs_open_on_gui_startup=0
+" }
+
+" UndoTree {
+    nnoremap <Leader>u :UndotreeToggle<CR>
+    " If undotree is opened, it is likely one wants to interact with it.
+    let g:undotree_SetFocusWhenToggle=1
+" }
+
+" vim-airline {
+   " Set configuration options for the statusline plugin vim-airline.
+   " Use the powerline theme and optionally enable powerline symbols.
+   " To use the symbols , , , , , , and .in the statusline
+   " segments add the following to your .vimrc.before.local file:
+   "   let g:airline_powerline_fonts=1
+   " If the previous symbols do not render for you then install a
+   " powerline enabled font.
+   if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+   endif
+
+   " unicode symbols
+   let g:airline_left_sep = '▶'
+   let g:airline_right_sep = ''
+   let g:airline_symbols.linenr = '␊'
+   let g:airline_symbols.linenr = '␤'
+   let g:airline_symbols.linenr = ''
+   let g:airline_symbols.branch = '⎇'
+   let g:airline_symbols.paste = 'ρ'
+   let g:airline_symbols.paste = 'Þ'
+   let g:airline_symbols.paste = '∥'
+   let g:airline_symbols.whitespace = ' '
+   let g:airline_symbols.space = ' '
+
+   let spc = g:airline_symbols.space
+
+   if !exists('g:airline_section_c')
+      let g:airline_section_c = airline#section#create(['%t', spc, 'readonly'])
+   endif
+   if !exists('g:airline_section_x')
+      let g:airline_section_x = airline#section#create_right([''])
+   endif
+
+   " See `:echo g:airline_theme_map` for some more choices
+   " Default in terminal vim is 'dark'
+   if !exists('g:airline_theme')
+       let g:airline_theme = 'solarized'
+   endif
+
+" }
+
+" vim-anyfold {
+   autocmd Filetype * AnyFoldActivate " activate for all file types
+   let g:anyfold_fold_comments=1
+   let g:anyfold_identify_comments=2
+" }
+
+" vim-gitgutter {
+   set updatetime=250 " reduce update time to get git markers
+" }
+
+" vim-fugitive {
+   nnoremap <Leader>gs :Gstatus<CR>
+   nnoremap <Leader>gd :Gdiff<CR>
+   nnoremap <Leader>gb :Gblame<CR>
+   nnoremap <Leader>gg :Git gr<CR>
+" }
