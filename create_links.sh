@@ -1,6 +1,7 @@
 #!/bin/bash
 
 src_list='bashrc aliases gitconfig gitignore vimrc vim/functionsrc vim/commandsrc vim/mappingsrc vim/pluginsrc'
+mkdir -p ${HOME}/.vim
 for src in ${src_list}
 do
    echo  "Creating back up of ${HOME}/.${src} in ${HOME}/${src}_config-files.bak"
