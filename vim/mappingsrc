@@ -1,0 +1,53 @@
+" Map leader
+let mapleader = ','
+
+" Easier moving in tabs and windows
+" The lines conflict with the default digraph mapping of <C-K>
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-L> <C-W>l<C-W>_
+map <C-H> <C-W>h<C-W>_
+
+" Fast tab moving
+map <S-H> gT
+map <S-L> gt
+
+" Wrapped lines goes down/up to next row, rather than next line in file.
+noremap j gj
+noremap k gk
+
+" Yank from the cursor to the end of the line, to be consistent with C and D.
+nnoremap Y y$
+
+" Search error messages
+nmap <Leader>e /\*E<cr>
+nmap <Leader>w /\*W<cr>
+nmap <Leader>ue gg/^UVM_ERROR<CR>/@\s\=\d\+<CR>wvey:noh<CR>0
+nmap <Leader>uw /^UVM_WARNING<cr>
+" Same for 0, home, end, etc
+function! WrapRelativeMotion(key, ...)
+   let vis_sel=""
+   if a:0
+      let vis_sel="gv"
+   endif
+   if &wrap
+      execute "normal!" vis_sel . "g" . a:key
+   else
+      execute "normal!" vis_sel . a:key
+   endif
+endfunction
+
+" Map g* keys in Normal, Operator-pending, and Visual+select (over written
+" below) modes
+noremap $ :call WrapRelativeMotion("$")<CR>
+noremap <End> :call WrapRelativeMotion("$")<CR>
+noremap 0 :call WrapRelativeMotion("0")<CR>
+noremap <Home> :call WrapRelativeMotion("0")<CR>
+noremap ^ :call WrapRelativeMotion("^")<CR>
+" Over write the Visual+Select mode mappings to ensure correct mode is
+" passed to WrapRelativeMotion
+vnoremap $ :<C-U>call WrapRelativeMotion("$", 1)<CR>
+vnoremap <End> :<C-U>call WrapRelativeMotion("$", 1)<CR>
+vnoremap 0 :<C-U>call WrapRelativeMotion("0", 1)<CR>
+vnoremap <Home> :<C-U>call WrapRelativeMotion("0", 1)<CR>
+vnoremap ^ :<C-U>call WrapRelativeMotion("^", 1)<CR>
