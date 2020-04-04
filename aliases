@@ -24,18 +24,18 @@ alias v='vim'
 alias vi='vim'
 
 # Quick edit
-alias ea 'vim -p ~/.aliases'
-alias ec 'vim -p ~/.bashrc'
-alias eg 'vim -p ~/.gitconfig'
-alias ev 'vim -p ~/.vimrc ~/.vim/*rc'
+alias ea='vim -p ~/.aliases'
+alias ec='vim -p ~/.bashrc'
+alias eg='vim -p ~/.gitconfig'
+alias ev='vim -p ~/.vimrc ~/.vim/*rc'
 
 # Quick reload
-alias ra 'source ~/.aliases'
-alias rcs 'source ~/.bashrc'
-alias rg 'source ~/.gitconfig'
+alias ra='source ~/.aliases'
+alias rc='source ~/.bashrc'
+alias rg='source ~/.gitconfig'
 
 # Add PID for jobs
-alias jobs 'jobs -l'
+alias jobs='jobs -l'
 
 # Git aliases
 alias gst='git status'
