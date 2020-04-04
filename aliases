@@ -1,21 +1,44 @@
+# Listing
 alias l='ls -h'
 alias l1='ls -1'
 alias ll='ls -lah'
 alias lrt='ls -lahrt'
 
+# Easier symbolic links
+alias lns='ln -s'
+
+# Vim
 alias v='vim'
 alias vi='vim'
 
-# git aliases
+# Quick edit
+alias ea 'vim -p ~/.aliases'
+alias ec 'vim -p ~/.bashrc'
+alias eg 'vim -p ~/.gitconfig'
+alias ev 'vim -p ~/.vimrc ~/.vim/*rc'
+
+# Quick reload
+alias ra 'source ~/.aliases'
+alias rcs 'source ~/.bashrc'
+alias rg 'source ~/.gitconfig'
+
+# Add PID for jobs
+alias jobs 'jobs -l'
+
+# Git aliases
 alias gst='git status'
 alias gci='git commit'
 alias gco='git checkout'
 alias gadd='git add'
 alias gpush='git push'
 alias gpull='git pull'
+alias gfetch='git fetch'
 alias gdiff='git diff'
+alias ggr='git gr'
+alias gbranch='git branch'
+alias gsub='git submodule'
 
-# mercurial aliases
+# Mercurial aliases
 alias hst='hg status'
 alias hci='hg commit'
 alias hco='hg checkout'
@@ -24,6 +47,5 @@ alias hpush='hg push'
 alias hpull='hg pull'
 alias hdiff='hg diff'
 
-alias ruby='ruby2.0'
-
+# Send xclip selection to clipboard
 alias xclip='xclip -selection clipboard'
