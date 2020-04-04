@@ -81,7 +81,3 @@ export CUDNN_LIBRARY="/usr/local/cuda/lib64/libcudnn.so"
 
 export PATH="$PATH:/usr/local/cuda/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.vimpkg/bin"
 export PATH="$PATH:/snap/bin"
-
-# Mint fortune
-/usr/bin/mint-fortune
-
