@@ -24,11 +24,11 @@ Plugin 'vim-airline/vim-airline-themes'
 " --- Vim as a programmer's text editor ----
 Plugin 'scrooloose/nerdcommenter' 
 Plugin 'scrooloose/nerdtree' 
-"Plugin 'scrooloose/syntastic.git' " error with python version
+Plugin 'scrooloose/syntastic.git' " error with python version
 Plugin 'pseewald/vim-anyfold'    " folding made easy
 Plugin 'Yggdroot/indentLine'
-"Plugin 'xolox/vim-misc'
-"Plugin 'xolox/vim-easytags'      " Exhuberant ctags
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'      " Exhuberant ctags
 " --- Working with Git ---------------------
 Plugin 'airblade/vim-gitgutter' 
 Plugin 'tpope/vim-fugitive' 
