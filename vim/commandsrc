@@ -1,0 +1,26 @@
+" Most prefer to automatically switch to the current file directory when
+" a new buffer is opened;
+autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+" Always switch to the current file directory
+
+" Avoid issues with upper case letter when saving or exiting
+:command WQ wq
+:command Wq wq
+:command Wqa wqa
+:command WQa wqa
+:command W w
+:command Q q
+:command Tabedit tabedit
+
+" Remove trailing whitespaces and ^M chars
+autocmd FileType c,cpp,java,verilog_systemverilog,go,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace() 
+autocmd FileType c,cpp,java,verilog_systemverilog,go,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call WarnOnTabs() 
+
+" e.g. Grep current file for <search_term>: Shell grep -Hn <search_term> %
+command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
+
+" Restore cursor to file position in previous editing session
+augroup resCur
+   autocmd!
+   autocmd BufWinEnter * call ResCur()
+augroup END
