@@ -1,6 +1,6 @@
 " Basics {
 set nocompatible        " Must be first line
-set shell=/bin/tcsh
+set shell=/bin/bash
 filetype off            " Required for Vundle
 " }
 
