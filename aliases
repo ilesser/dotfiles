@@ -15,6 +15,7 @@ alias l='ls -h'
 alias l1='ls -1'
 alias ll='ls -lAh'
 alias lrt='ls -lAhrt'
+alias lrs='ls -lAhrS'
 
 # Easier symbolic links
 alias lns='ln -s'
