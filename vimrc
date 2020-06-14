@@ -1,41 +1,30 @@
-" Basics {
-set nocompatible        " Must be first line
-set shell=/bin/bash
-filetype off            " Required for Vundle
-" }
+" vim-plug {
 
-" Vundle {
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+" Make sure you use single quotes
 
-" Force conection to use git protocol
-let g:vundle_default_git_proto='git'
-
-" Vundle start
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim' 
 " --- Making Vim look good -----------------
-Plugin 'altercation/vim-colors-solarized' 
-Plugin 'vim-airline/vim-airline' 
-Plugin 'vim-airline/vim-airline-themes' 
+Plug 'altercation/vim-colors-solarized' 
+Plug 'vim-airline/vim-airline' 
+Plug 'vim-airline/vim-airline-themes' 
 " --- Vim as a programmer's text editor ----
-Plugin 'scrooloose/nerdcommenter' 
-Plugin 'scrooloose/nerdtree' 
-Plugin 'scrooloose/syntastic.git' " error with python version
-Plugin 'pseewald/vim-anyfold'    " folding made easy
-Plugin 'Yggdroot/indentLine'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'      " Exhuberant ctags
+Plug 'scrooloose/nerdcommenter' 
+Plug 'scrooloose/nerdtree' 
+Plug 'scrooloose/syntastic'   " error with python version
+Plug 'pseewald/vim-anyfold'   " folding made easy
+Plug 'Yggdroot/indentLine'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'     " Exhuberant ctags
 " --- Working with Git ---------------------
-Plugin 'airblade/vim-gitgutter' 
-Plugin 'tpope/vim-fugitive' 
+Plug 'airblade/vim-gitgutter' 
+Plug 'tpope/vim-fugitive' 
 
-" All of the Plugins must be added before the following line 
-call vundle#end()                   " required
-filetype plugin indent on           " required
+" Initialize plugin system
+call plug#end()
 " }
 
 " Palette {
