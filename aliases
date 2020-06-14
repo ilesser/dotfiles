@@ -21,14 +21,15 @@ alias lrs='ls -lAhrS'
 alias lns='ln -s'
 
 # Vim
-alias v='vim'
-alias vi='vim'
+alias nv='nvim'
+alias nvi='nvim'
 
 # Quick edit
-alias ea='vim -p ~/.aliases'
-alias ec='vim -p ~/.bashrc'
-alias eg='vim -p ~/.gitconfig'
-alias ev='vim -p ~/.vimrc ~/.vim/*rc'
+alias ea='nvim -p ~/.aliases'
+alias ec='nvim -p ~/.bashrc'
+alias eg='nvim -p ~/.gitconfig'
+alias ev='nvim -p ~/.vimrc ~/.vim/*rc'
+alias en='nvim -p ~/.config/nvim/init.vim'
 
 # Quick reload
 alias ra='source ~/.aliases'
