@@ -44,12 +44,14 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'     " Exhuberant ctags
 Plug 'brooth/far.vim'         " Super search and replace
 Plug 'jiangmiao/auto-pairs'   " Insert pais of quotes, brackets, etc
+Plug 'machakann/vim-highlightedyank' " Highlight yank area 
+Plug 'majutsushi/tagbar'      " Browse classes
 " --- Working with Git ---------------------
-Plug 'airblade/vim-gitgutter' 
-Plug 'tpope/vim-fugitive' 
-Plug 'xuyuanp/nerdtree-git-plugin'
+"Plug 'airblade/vim-gitgutter' 
+"Plug 'tpope/vim-fugitive' 
+"Plug 'xuyuanp/nerdtree-git-plugin'
 " --- Autocomplete -------------------------
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-syntax'  " Fuente general de auto completado
 Plug 'Shougo/echodoc.vim'  " Show function signature
 Plug 'ervandew/supertab'   " Use tabs to move around deoplete
@@ -61,7 +63,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 " --- Linting ------------------------------
 "Plug 'dense-analysis/ale'
-Plug 'neomake/neomake'
+"Plug 'neomake/neomake'
 " --- Syntax highlight ---------------------
 Plug 'sheerun/vim-polyglot'
 
@@ -75,10 +77,6 @@ call plug#end()
 set history=700
 " Set to auto read when a file is changed from the outside
 set autoread
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
 filetype plugin indent on
 " Enable mouse on all modes
 if has("mouse")
@@ -113,6 +111,7 @@ set ffs=unix,dos,mac
 set nobackup
 set nowb
 set noswapfile
+set autochdir
 au BufRead,BufNewFile *.cmd set filetype=tcl
 " ------------------------------------------------------------------------------
 
@@ -136,17 +135,27 @@ set tw=500
 set ai "Auto indent
 set si "Smart indent
 set wrap! "Wrap lines
+" Turn hybrid line numbers on
+set number relativenumber
+set nu rnu
 " ------------------------------------------------------------------------------
 
 " ------------------------------------------------------------------------------
-" Moving around, tabs, windows and buffers
+" Mappings
 " ------------------------------------------------------------------------------
 " Treat long lines as break lines (useful when moving around in them)
+" With a map leader it's possible to do extra key combinations
+let mapleader =" "
+let g:mapleader =" " 
 map j gj
 map k gk
-" Smart way to move between tabs
-map L gt
-map H gT
+" Smart way to move between buffers
+"map L gt
+"map H gT
+map H :bfirst<cr> 
+map J :bprevious<cr> 
+map K :bnext<cr>
+map L :blast<cr> 
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -154,22 +163,19 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-" Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
+map <leader>t :tabedit <c-r>=expand("%:p:h")<cr>/
 " Close the current buffer
-map <leader>bd :Bclose<cr>
+map <leader>q :bdelete<cr>
 " Close all the buffers
 map <leader>ba :1,1000 bd!<cr>
-" Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
-" ------------------------------------------------------------------------------
-
-" ------------------------------------------------------------------------------
-"  Editing mappings
-" ------------------------------------------------------------------------------
+" Exit
+map <leader>x :qa<cr>
+" Save
+map <leader>w :w<cr>
 " Remap VIM 0 to first non-blank character
 map 0 ^
+" Yank from the cursor to the end of the line, to be consistent with C and D.
+nnoremap Y y$
 " ------------------------------------------------------------------------------
 
 " ------------------------------------------------------------------------------
@@ -255,29 +261,23 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 "  Nerdtree
 " ------------------------------------------------------------------------------
 let g:NERDTreeChDirMode = 2  " Cambia el directorio actual al nodo padre actual
-map <F2> :NERDTreeToggle<CR>
+map <leader>nt :NERDTree<CR>
 " ------------------------------------------------------------------------------
 
 " ------------------------------------------------------------------------------
 "  Neomake
 " ------------------------------------------------------------------------------
 " When writing a buffer (no delay).
-call neomake#configure#automake('w')
+"call neomake#configure#automake('w')
 " When writing a buffer (no delay), and on normal mode changes (after 750ms).
-call neomake#configure#automake('nw', 750)
+"call neomake#configure#automake('nw', 750)
 " When reading a buffer (after 1s), and when writing (no delay).
-call neomake#configure#automake('rw', 1000)
+"call neomake#configure#automake('rw', 1000)
 " Full config: when writing or reading a buffer, and on changes in insert and
 " normal mode (after 1s; no delay when writing).
-call neomake#configure#automake('nrwi', 500)
+"call neomake#configure#automake('nrwi', 500)
+"let g:neomake_python_enabled_makers = ['flake8']
 " ------------------------------------------------------------------------------
-
-" ------------------------------------------------------------------------------
-" DVC
-" ------------------------------------------------------------------------------
-autocmd! BufNewFile,BufRead Dvcfile,*.dvc setfiletype yaml
-" ------------------------------------------------------------------------------
-
 
 " ------------------------------------------------------------------------------
 " vim-anyfold 
@@ -286,3 +286,27 @@ autocmd Filetype * AnyFoldActivate " activate for all file types
 let g:anyfold_fold_comments=1
 let g:anyfold_identify_comments=2
 " ------------------------------------------------------------------------------
+
+" ------------------------------------------------------------------------------
+" vim-fugitive
+" ------------------------------------------------------------------------------
+nmap <leader>gs :Git<CR>
+nmap <leader>gs :Git diff<CR>
+nmap <leader>gl :Git log<CR>
+nmap <leader>gj :diffget //3<CR> " Get from the right buffer
+nmap <leader>gf :diffget //2<CR> " Get from the left  buffer
+
+" ------------------------------------------------------------------------------
+" vim-highlightedyank
+" ------------------------------------------------------------------------------
+hi HighlightedyankRegion cterm=reverse gui=reverse
+" Set highlight duration time to 500 ms
+let g:highlightedyank_highlight_duration = 500
+" ------------------------------------------------------------------------------
+
+" ------------------------------------------------------------------------------
+" Tagbar
+" ------------------------------------------------------------------------------
+nmap <F8> :TagbarToggle<CR>
+" ------------------------------------------------------------------------------
+
