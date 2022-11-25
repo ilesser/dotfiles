@@ -31,11 +31,12 @@ alias nv='nvim'
 alias nvi='nvim'
 
 # Quick edit
-alias ea='nvim -p ~/.aliases'
-alias ec='nvim -p ~/.bashrc'
-alias eg='nvim -p ~/.gitconfig'
-alias ev='nvim -p ~/.vimrc ~/.vim/*rc'
-alias en='nvim -p ~/.config/nvim/init.vim'
+alias ea='nvim ~/.aliases'
+alias ec='nvim ~/.bashrc'
+alias eg='nvim ~/.gitconfig'
+#alias ev='nvim ~/.vimrc ~/.vim/*rc'
+alias ev='nvim ~/.nvimrc'
+alias en='nvim ~/.config/nvim/init.vim'
 
 # Quick reload
 alias ra='source ~/.aliases'
