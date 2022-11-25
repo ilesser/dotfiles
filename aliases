@@ -17,6 +17,12 @@ alias ll='ls -lAh'
 alias lrt='ls -lAhrt'
 alias lrs='ls -lAhrS'
 
+# Quick move
+alias up='cd ..'
+alias up2='up; up'
+alias up3='up2;up'
+alias up4='up2;up2'
+
 # Easier symbolic links
 alias lns='ln -s'
 
