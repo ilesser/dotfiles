@@ -70,3 +70,6 @@ alias hdiff='hg diff'
 
 # Send xclip selection to clipboard
 alias xclip='xclip -selection clipboard'
+
+# OpenLane
+alias openlane='docker run -it -v ${PDK_ROOT}/openlane:/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) openlane:rc2'
