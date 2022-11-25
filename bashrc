@@ -70,14 +70,3 @@ if [ -f ~/.aliases ]; then
    . ~/.aliases
 fi
 
-# CUDA
-export PATH="/usr/local/cuda/bin:$PATH"
-export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
-export CUDADIR="/usr/local/cuda"
-export CUDNN_INCLUDE_DIR="/usr/local/cuda/include"
-export CUDNN_LIBRARY="/usr/local/cuda/lib64/libcudnn.so"
-#export PYTHON_EXECUTABLE="/usr/bin/python3.6"
-#export PYTHON_LIBRARY="/usr/lib/x86_64-linux-gnu/libpython3.6m.so"
-
-export PATH="$PATH:/usr/local/cuda/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.vimpkg/bin"
-export PATH="$PATH:/snap/bin"
