@@ -1,5 +1,5 @@
 " Map leader
-let mapleader = ','
+let mapleader = "<space>"
 
 " Easier moving in tabs and windows
 " The lines conflict with the default digraph mapping of <C-K>
@@ -9,8 +9,10 @@ map <C-L> <C-W>l<C-W>_
 map <C-H> <C-W>h<C-W>_
 
 " Fast tab moving
-map <S-H> gT
-map <S-L> gt
+"map <S-H> gT
+"map <S-L> gt
+map <S-H> :bprevious<cr>
+map <S-L> :bnext<cr>
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
 noremap j gj
