@@ -70,3 +70,13 @@ if [ -f ~/.aliases ]; then
    . ~/.aliases
 fi
 
+# Xilinx Rapidwright
+#export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib:/usr/lib:/usr/lib64"
+#export RAPIDWRIGHT_PATH=~/fpga/Xilinx/RapidWright
+#export CLASSPATH=$RAPIDWRIGHT_PATH/bin:$(echo $RAPIDWRIGHT_PATH/jars/*.jar | tr ' ' ':')
+#export XRAY_VIVADO_SETTINGS=~/fpga/Xilinx/Vivado/2019.2/settings64.sh
+#source $XRAY_VIVADO_SETTINGS
+
+# OpenLane
+export PDK_ROOT="${HOME}/fpga"
+export OPENLANE_ROOT="${HOME}/fpga/openlane"
